@@ -5,6 +5,10 @@ using UnityEngine.Rendering;
 public class CustomRendererPipeline : RenderPipeline {
     public override RenderPipelineGlobalSettings defaultSettings { get; }
     private CameraRenderer _renderer = new CameraRenderer();
+
+    public CustomRendererPipeline() {
+        GraphicsSettings.useScriptableRenderPipelineBatching = true;
+    }
     
     protected override void Render(ScriptableRenderContext context, List<Camera> cameras) {
         base.Render(context, cameras);
