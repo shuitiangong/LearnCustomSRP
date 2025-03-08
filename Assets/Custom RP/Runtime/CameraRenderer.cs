@@ -49,7 +49,10 @@ public partial class CameraRenderer {
         var sortingSettings = new SortingSettings(_camera) {
             criteria = SortingCriteria.CommonOpaque
         };
-        var drawingSettings = new DrawingSettings(unlitShaderTagId, sortingSettings);
+        var drawingSettings = new DrawingSettings(unlitShaderTagId, sortingSettings) {
+            enableDynamicBatching = true,
+            enableInstancing = false
+        };
         var filteringSettings = new FilteringSettings(RenderQueueRange.opaque);
         _context.DrawRenderers(_cullingResults, ref drawingSettings, ref filteringSettings);
         _context.DrawSkybox(_camera);
