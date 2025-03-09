@@ -15,9 +15,13 @@ public class MeshBall : MonoBehaviour {
     private void Awake() {
         for (int i = 0; i < _matrices.Length; ++i) {
             _matrices[i] = Matrix4x4.TRS(
-                Random.insideUnitSphere * 10f, Quaternion.identity, Vector3.one
+                Random.insideUnitSphere * 10f, 
+                Quaternion.Euler(
+                    Random.value * 360f, Random.value * 360f, Random.value * 360f
+                ), 
+                Vector3.one
             );
-            _baseColors[i] = new Vector4(Random.value, Random.value, Random.value, 0.8f);
+            _baseColors[i] = new Vector4(Random.value, Random.value, Random.value, Random.Range(0.5f, 1f));
         }
     }
 
