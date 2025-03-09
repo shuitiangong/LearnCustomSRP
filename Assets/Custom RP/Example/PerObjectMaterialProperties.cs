@@ -20,7 +20,7 @@ public class PewObjectMaterialProperties : MonoBehaviour {
             _block = new MaterialPropertyBlock();
         }
         _block.SetColor(_baseColorID, baseColor);
-        _block.SetFloat(_cutoffID, Random.value);
+        _block.SetFloat(_cutoffID, cutoff);
         GetComponent<Renderer>().SetPropertyBlock(_block);
     }
 }
