@@ -17,7 +17,7 @@ public class MeshBall : MonoBehaviour {
             _matrices[i] = Matrix4x4.TRS(
                 Random.insideUnitSphere * 10f, Quaternion.identity, Vector3.one
             );
-            _baseColors[i] = new Vector4(Random.value, Random.value, Random.value, 1f);
+            _baseColors[i] = new Vector4(Random.value, Random.value, Random.value, 0.8f);
         }
     }
 
