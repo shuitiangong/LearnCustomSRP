@@ -28,7 +28,7 @@ public partial class CameraRenderer {
         }
         
         Setup();
-        _lighting.Setup(context);
+        _lighting.Setup(context, _cullingResults);
         DrawVisibleGeometry(useDynamicBatching, useGPUInstancing);
 #if UNITY_EDITOR
         DrawUnsupportedShaders();

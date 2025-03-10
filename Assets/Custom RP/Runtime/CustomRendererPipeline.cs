@@ -12,6 +12,7 @@ public class CustomRendererPipeline : RenderPipeline {
         this._useDynamicBatching = useDynamicBatching;
         this._useGPUInstancing = useGPUInstancing;
         GraphicsSettings.useScriptableRenderPipelineBatching = useSRPBatcher;
+        GraphicsSettings.lightsUseLinearIntensity = true;
     }
     
     protected override void Render(ScriptableRenderContext context, List<Camera> cameras) {
@@ -24,8 +25,7 @@ public class CustomRendererPipeline : RenderPipeline {
     protected override void ProcessRenderRequests(ScriptableRenderContext context, Camera camera, List<Camera.RenderRequest> renderRequests) {
         base.ProcessRenderRequests(context, camera, renderRequests);
     }
-
-
+    
     protected override void Render(ScriptableRenderContext context, Camera[] cameras) { }
     
     protected override void Dispose(bool disposing) {
