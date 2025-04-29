@@ -8,6 +8,7 @@ Shader "Custom RP/Unlit" {
         [Enum(UnityEngine.Rendering.BlendMode)]_DstBlend("Dst Blend", Float) = 0
         [Enum(off, 0, On, 1)]_ZWrite("Z_Write", Float) = 1 
     }
+    
     SubShader {
         Pass {
             Blend [_SrcBlend][_DstBlend]
@@ -22,4 +23,6 @@ Shader "Custom RP/Unlit" {
             ENDHLSL
         }
     }
+
+    CustomEditor "CustomShaderGUI"
 }
