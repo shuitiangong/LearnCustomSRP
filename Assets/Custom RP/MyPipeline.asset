@@ -12,3 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5625ae13f3c608046ab5336e34985625, type: 3}
   m_Name: MyPipeline
   m_EditorClassIdentifier: 
+  useDynamicBatching: 1
+  useGPUInstancing: 1
+  useSRPBatcher: 1
+  shadows:
+    directional:
+      atlasSize: 512
+    maxDistance: 20

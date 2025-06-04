@@ -7,18 +7,20 @@ public class CustomRendererPipeline : RenderPipeline {
     private CameraRenderer _renderer = new CameraRenderer();
     private bool _useDynamicBatching;
     private bool _useGPUInstancing;
+    private ShadowSettings _shadowSettings;
     
-    public CustomRendererPipeline(bool useDynamicBatching, bool useGPUInstancing, bool useSRPBatcher) {
+    public CustomRendererPipeline(bool useDynamicBatching, bool useGPUInstancing, bool useSRPBatcher, ShadowSettings shadowSettings) {
         this._useDynamicBatching = useDynamicBatching;
         this._useGPUInstancing = useGPUInstancing;
         GraphicsSettings.useScriptableRenderPipelineBatching = useSRPBatcher;
         GraphicsSettings.lightsUseLinearIntensity = true;
+        this._shadowSettings = shadowSettings;
     }
     
     protected override void Render(ScriptableRenderContext context, List<Camera> cameras) {
         base.Render(context, cameras);
         foreach (var cam in cameras) {
-            _renderer.Render(context, cam, _useDynamicBatching, _useGPUInstancing);
+            _renderer.Render(context, cam, _useDynamicBatching, _useGPUInstancing, _shadowSettings);
         }
     }
 
