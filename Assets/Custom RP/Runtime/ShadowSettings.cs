@@ -20,10 +20,10 @@ public class ShadowSettings {
     }
 
     public Directional directional = new Directional {
-        atlasSize = MapSize._1024
+        atlasSize = MapSize._512
     };
     
-    [Min(0f)] public float maxDistance = 100f;
+    [Min(0f)] public float maxDistance = 10f;
 }
 
 

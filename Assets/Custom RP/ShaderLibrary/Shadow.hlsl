@@ -1,7 +1,7 @@
 ﻿#ifndef CUSTOM_SHADOWS_INCLUDED
 #define CUSTOM_SHADOWS_INCLUDED
 
-#define SHADOW_SAMPLER sampler_liner_clamp_compare
+#define SHADOW_SAMPLER sampler_linear_clamp_compare
 
 TEXTURE2D_SHADOW(_DirectionalShadowAtlas);
 SAMPLER_CMP(SHADOW_SAMPLER);
@@ -24,6 +24,7 @@ float SampleDirectionalShadowAtlas(float3 positionSTS) {
 }
 
 float GetDirectionalShadowAttenuation(DirectionalShadowData data, Surface surfaceWS) {
+    if (data.strength <= 0.0) return 1.0;
     float3 positionSTS = mul(_DirectionalShadowMatrices[data.tileIndex], float4(surfaceWS.position, 1.0)).xyz;
     float shadow = SampleDirectionalShadowAtlas(positionSTS);
     return shadow;
