@@ -18,4 +18,8 @@ MonoBehaviour:
   shadows:
     directional:
       atlasSize: 512
-    maxDistance: 10
+      cascadeCount: 4
+      cascadeRatio1: 0.1
+      cascadeRatio2: 0.25
+      cascadeRatio3: 0.5
+    maxDistance: 20.79

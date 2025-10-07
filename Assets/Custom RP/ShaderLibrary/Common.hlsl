@@ -28,4 +28,8 @@ float Square(float v) {
     return v*v;
 }
 
+float3 DistancesSquared(float3 v1, float3 v2) {
+    return dot(v1 - v2, v1 - v2);
+}
+
 #endif
