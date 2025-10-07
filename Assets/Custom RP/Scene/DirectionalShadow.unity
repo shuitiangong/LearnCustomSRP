@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18335274, g: 0.22896826, b: 0.30615616, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -199,8 +199,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58014486}
-  m_LocalRotation: {x: 0.3959966, y: -0.30489364, z: 0.1409385, w: 0.85461277}
-  m_LocalPosition: {x: 67.205795, y: 45.025314, z: -23.260168}
+  m_LocalRotation: {x: -0.2889483, y: 0.6459866, z: -0.2900489, w: -0.6442685}
+  m_LocalPosition: {x: 70.011314, y: 42.835415, z: -16.293402}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -241,7 +241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0.65241194, g: 0.764151, b: 0.7243746, a: 1}
   cutoff: 0.5
-  metallic: 0
+  metallic: 0.349
   smoothness: 0.5
 --- !u!135 &65259546
 SphereCollider:
@@ -355,7 +355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0.70397127, g: 0.9245283, b: 0.5189569, a: 1}
   cutoff: 0.5
-  metallic: 0
+  metallic: 0.349
   smoothness: 0.5
 --- !u!135 &71538848
 SphereCollider:
@@ -469,7 +469,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0.4227483, g: 0.63252366, b: 0.9433962, a: 1}
   cutoff: 0.5
-  metallic: 0
+  metallic: 0.01
   smoothness: 0.5
 --- !u!65 &81103479
 BoxCollider:
@@ -549,194 +549,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 43
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &90697894
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 90697896}
-  - component: {fileID: 90697895}
-  m_Layer: 0
-  m_Name: Directional Light (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!108 &90697895
-Light:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 90697894}
-  m_Enabled: 1
-  serializedVersion: 10
-  m_Type: 1
-  m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
-  m_Range: 10
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 21.80208
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 2
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-    m_CullingMatrixOverride:
-      e00: 1
-      e01: 0
-      e02: 0
-      e03: 0
-      e10: 0
-      e11: 1
-      e12: 0
-      e13: 0
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingLayerMask: 1
-  m_Lightmapping: 4
-  m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
-  m_UseBoundingSphereOverride: 0
-  m_UseViewFrustumForShadowCasterCull: 1
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
---- !u!4 &90697896
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 90697894}
-  m_LocalRotation: {x: 0.17694147, y: 0.8099847, z: -0.30647165, w: 0.46764478}
-  m_LocalPosition: {x: 59, y: 41.1, z: -21.58}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 41.45, y: 120, z: 0}
---- !u!1 &115227772
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 115227774}
-  - component: {fileID: 115227773}
-  m_Layer: 0
-  m_Name: Directional Light (3)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!108 &115227773
-Light:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 115227772}
-  m_Enabled: 1
-  serializedVersion: 10
-  m_Type: 1
-  m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
-  m_Range: 10
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 21.80208
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 2
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-    m_CullingMatrixOverride:
-      e00: 1
-      e01: 0
-      e02: 0
-      e03: 0
-      e10: 0
-      e11: 1
-      e12: 0
-      e13: 0
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingLayerMask: 1
-  m_Lightmapping: 4
-  m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
-  m_UseBoundingSphereOverride: 0
-  m_UseViewFrustumForShadowCasterCull: 1
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
---- !u!4 &115227774
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 115227772}
-  m_LocalRotation: {x: -0.30647165, y: 0.46764484, z: -0.17694148, w: -0.8099846}
-  m_LocalPosition: {x: 59, y: 41.1, z: -21.58}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 41.45, y: 300, z: 0}
 --- !u!1 &136904314
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,7 +583,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0.70397127, g: 0.9245283, b: 0.5189569, a: 1}
   cutoff: 0.5
-  metallic: 0
+  metallic: 0.349
   smoothness: 0.5
 --- !u!135 &136904316
 SphereCollider:
@@ -885,7 +697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0.36862743, g: 0.4989, b: 0.8980392, a: 1}
   cutoff: 0.5
-  metallic: 0
+  metallic: 0.349
   smoothness: 0.5
 --- !u!135 &219705247
 SphereCollider:
@@ -999,7 +811,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0.65241194, g: 0.764151, b: 0.7243746, a: 1}
   cutoff: 0.5
-  metallic: 0
+  metallic: 0.349
   smoothness: 0.5
 --- !u!135 &238461599
 SphereCollider:
@@ -1113,7 +925,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0.9339623, g: 0.3304112, b: 0.6281493, a: 1}
   cutoff: 0.5
-  metallic: 0
+  metallic: 0.349
   smoothness: 0.5
 --- !u!135 &268781466
 SphereCollider:
@@ -1227,7 +1039,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0.4227483, g: 0.63252366, b: 0.9433962, a: 1}
   cutoff: 0.5
-  metallic: 0
+  metallic: 0.01
   smoothness: 0.5
 --- !u!65 &282387713
 BoxCollider:
@@ -1341,7 +1153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0.51787883, g: 0.9150943, b: 0.21150766, a: 1}
   cutoff: 0.5
-  metallic: 0
+  metallic: 0.01
   smoothness: 0.5
 --- !u!65 &291769940
 BoxCollider:
@@ -1507,14 +1319,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 360346535}
-  m_LocalRotation: {x: 0.2968837, y: 0.2462908, z: -0.07954977, w: 0.9191696}
-  m_LocalPosition: {x: 59.59, y: 41.1, z: -21.58}
+  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalPosition: {x: 0, y: 30, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 35.8, y: 30, z: 0}
+  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &372321032
 GameObject:
   m_ObjectHideFlags: 0
@@ -1549,7 +1361,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0.65241194, g: 0.764151, b: 0.7243746, a: 1}
   cutoff: 0.5
-  metallic: 0
+  metallic: 0.349
   smoothness: 0.5
 --- !u!135 &372321034
 SphereCollider:
@@ -1663,7 +1475,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0.9056604, g: 0.49982202, b: 0.7523128, a: 1}
   cutoff: 0.5
-  metallic: 0
+  metallic: 0.349
   smoothness: 0.5
 --- !u!135 &406514136
 SphereCollider:
@@ -1777,7 +1589,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0.8962264, g: 0.8489311, b: 0.36779106, a: 1}
   cutoff: 0.5
-  metallic: 0
+  metallic: 0.349
   smoothness: 0.5
 --- !u!135 &552662451
 SphereCollider:
@@ -1891,7 +1703,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0.9528302, g: 0.8944019, b: 0.92323667, a: 1}
   cutoff: 0.5
-  metallic: 0
+  metallic: 0.349
   smoothness: 0.5
 --- !u!135 &561217067
 SphereCollider:
@@ -2005,7 +1817,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0.4227483, g: 0.63252366, b: 0.9433962, a: 1}
   cutoff: 0.5
-  metallic: 0
+  metallic: 0.01
   smoothness: 0.5
 --- !u!65 &716901546
 BoxCollider:
@@ -2119,7 +1931,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0.36271802, g: 0.46905482, b: 0.5377358, a: 1}
   cutoff: 0.5
-  metallic: 0
+  metallic: 0.349
   smoothness: 0.5
 --- !u!135 &749536764
 SphereCollider:
@@ -2233,7 +2045,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0.43411472, g: 0.33161268, b: 0.8679245, a: 1}
   cutoff: 0.5
-  metallic: 0
+  metallic: 0.349
   smoothness: 0.5
 --- !u!135 &776436320
 SphereCollider:
@@ -2347,7 +2159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0.9528302, g: 0.8944019, b: 0.92323667, a: 1}
   cutoff: 0.5
-  metallic: 0
+  metallic: 0.349
   smoothness: 0.5
 --- !u!135 &858886349
 SphereCollider:
@@ -2461,7 +2273,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0.47209862, g: 0.79016536, b: 0.9716981, a: 1}
   cutoff: 0.5
-  metallic: 0
+  metallic: 0.349
   smoothness: 0.5
 --- !u!135 &861606388
 SphereCollider:
@@ -2575,7 +2387,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0.15619439, g: 0.7680318, b: 0.8490566, a: 1}
   cutoff: 0.5
-  metallic: 0
+  metallic: 0.349
   smoothness: 0.5
 --- !u!135 &873334598
 SphereCollider:
@@ -2689,7 +2501,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0.51787883, g: 0.9150943, b: 0.21150766, a: 1}
   cutoff: 0.5
-  metallic: 0
+  metallic: 0.01
   smoothness: 0.5
 --- !u!65 &947541929
 BoxCollider:
@@ -2803,7 +2615,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0.9339623, g: 0.3304112, b: 0.6281493, a: 1}
   cutoff: 0.5
-  metallic: 0
+  metallic: 0.349
   smoothness: 0.5
 --- !u!135 &958818326
 SphereCollider:
@@ -2917,7 +2729,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0.36862743, g: 0.4989, b: 0.8980392, a: 1}
   cutoff: 0.5
-  metallic: 0
+  metallic: 0.349
   smoothness: 0.5
 --- !u!135 &972184130
 SphereCollider:
@@ -3031,7 +2843,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0.70397127, g: 0.9245283, b: 0.5189569, a: 1}
   cutoff: 0.5
-  metallic: 0
+  metallic: 0.349
   smoothness: 0.5
 --- !u!135 &991087587
 SphereCollider:
@@ -3145,7 +2957,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0.15619439, g: 0.7680318, b: 0.8490566, a: 1}
   cutoff: 0.5
-  metallic: 0
+  metallic: 0.349
   smoothness: 0.5
 --- !u!135 &1022076777
 SphereCollider:
@@ -3225,100 +3037,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1214932134
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1214932136}
-  - component: {fileID: 1214932135}
-  m_Layer: 0
-  m_Name: Directional Light (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!108 &1214932135
-Light:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1214932134}
-  m_Enabled: 1
-  serializedVersion: 10
-  m_Type: 1
-  m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
-  m_Range: 10
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 21.80208
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 2
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-    m_CullingMatrixOverride:
-      e00: 1
-      e01: 0
-      e02: 0
-      e03: 0
-      e10: 0
-      e11: 1
-      e12: 0
-      e13: 0
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingLayerMask: 1
-  m_Lightmapping: 4
-  m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
-  m_UseBoundingSphereOverride: 0
-  m_UseViewFrustumForShadowCasterCull: 1
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
---- !u!4 &1214932136
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1214932134}
-  m_LocalRotation: {x: -0.091591634, y: 0.9034205, z: -0.3418247, w: -0.24207072}
-  m_LocalPosition: {x: 59, y: 41.1, z: -21.58}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 41.45, y: 210, z: 0}
 --- !u!1 &1230305011
 GameObject:
   m_ObjectHideFlags: 0
@@ -3353,7 +3071,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0.8490566, g: 0.6688323, b: 0.6688323, a: 1}
   cutoff: 0.5
-  metallic: 0
+  metallic: 0.349
   smoothness: 0.5
 --- !u!135 &1230305013
 SphereCollider:
@@ -3433,6 +3151,100 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1257081732
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1257081734}
+  - component: {fileID: 1257081733}
+  m_Layer: 0
+  m_Name: Directional Light (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!108 &1257081733
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257081732}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 1
+  m_Shape: 0
+  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Intensity: 1
+  m_Range: 10
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!4 &1257081734
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257081732}
+  m_LocalRotation: {x: 0.41226825, y: 0.35209078, z: -0.17669842, w: 0.8214893}
+  m_LocalPosition: {x: 0, y: 30, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 53.3, y: 46.4, z: 0}
 --- !u!1 &1263516075
 GameObject:
   m_ObjectHideFlags: 0
@@ -3467,7 +3279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0.2691349, g: 0.9056604, b: 0.841912, a: 1}
   cutoff: 0.5
-  metallic: 0
+  metallic: 0.349
   smoothness: 0.5
 --- !u!135 &1263516077
 SphereCollider:
@@ -3547,6 +3359,100 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1265070830
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1265070832}
+  - component: {fileID: 1265070831}
+  m_Layer: 0
+  m_Name: Directional Light (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!108 &1265070831
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265070830}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 1
+  m_Shape: 0
+  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Intensity: 1
+  m_Range: 10
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!4 &1265070832
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265070830}
+  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalPosition: {x: 0, y: 30, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1280896028
 GameObject:
   m_ObjectHideFlags: 0
@@ -3581,7 +3487,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0.36862743, g: 0.4989, b: 0.8980392, a: 1}
   cutoff: 0.5
-  metallic: 0
+  metallic: 0.349
   smoothness: 0.5
 --- !u!135 &1280896030
 SphereCollider:
@@ -3695,7 +3601,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0.70397127, g: 0.9245283, b: 0.5189569, a: 1}
   cutoff: 0.5
-  metallic: 0
+  metallic: 0.349
   smoothness: 0.5
 --- !u!135 &1398794469
 SphereCollider:
@@ -3809,7 +3715,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0.67058825, g: 0.7067724, b: 0.8509804, a: 1}
   cutoff: 0.5
-  metallic: 0
+  metallic: 0.349
   smoothness: 0.5
 --- !u!135 &1492019789
 SphereCollider:
@@ -3923,7 +3829,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0.4227483, g: 0.63252366, b: 0.9433962, a: 1}
   cutoff: 0.5
-  metallic: 0
+  metallic: 0.01
   smoothness: 0.5
 --- !u!65 &1601807703
 BoxCollider:
@@ -4061,7 +3967,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1681158651}
   m_Enabled: 1
-  m_CastShadows: 0
+  m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -4152,7 +4058,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0.7735849, g: 0.054734774, b: 0.15165253, a: 1}
   cutoff: 0.5
-  metallic: 0
+  metallic: 0.349
   smoothness: 0.5
 --- !u!135 &1681307266
 SphereCollider:
@@ -4266,7 +4172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0.8490566, g: 0.6688323, b: 0.6688323, a: 1}
   cutoff: 0.5
-  metallic: 0
+  metallic: 0.349
   smoothness: 0.5
 --- !u!135 &1710104079
 SphereCollider:
@@ -4380,7 +4286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0.9528302, g: 0.8944019, b: 0.92323667, a: 1}
   cutoff: 0.5
-  metallic: 0
+  metallic: 0.349
   smoothness: 0.5
 --- !u!135 &1710414810
 SphereCollider:
@@ -4494,7 +4400,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0.8962264, g: 0.8489311, b: 0.36779106, a: 1}
   cutoff: 0.5
-  metallic: 0
+  metallic: 0.349
   smoothness: 0.5
 --- !u!135 &1716995482
 SphereCollider:
@@ -4608,7 +4514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0.8773585, g: 0.7013306, b: 0.47592562, a: 1}
   cutoff: 0.5
-  metallic: 0
+  metallic: 0.349
   smoothness: 0.5
 --- !u!135 &1859781852
 SphereCollider:
@@ -4722,7 +4628,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0.9245283, g: 0.626417, b: 0.36196154, a: 1}
   cutoff: 0.5
-  metallic: 0
+  metallic: 0.349
   smoothness: 0.5
 --- !u!135 &1935099528
 SphereCollider:
@@ -4836,7 +4742,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0.9056604, g: 0.49982202, b: 0.7523128, a: 1}
   cutoff: 0.5
-  metallic: 0
+  metallic: 0.349
   smoothness: 0.5
 --- !u!135 &1937724848
 SphereCollider:
@@ -4950,7 +4856,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0.053800307, g: 0.8773585, b: 0.73289126, a: 1}
   cutoff: 0.5
-  metallic: 0
+  metallic: 0.349
   smoothness: 0.5
 --- !u!135 &2026663891
 SphereCollider:
@@ -5030,6 +4936,100 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2054149145
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2054149147}
+  - component: {fileID: 2054149146}
+  m_Layer: 0
+  m_Name: Directional Light (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!108 &2054149146
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054149145}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 1
+  m_Shape: 0
+  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Intensity: 1
+  m_Range: 10
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!4 &2054149147
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054149145}
+  m_LocalRotation: {x: 0.082707606, y: 0.90929735, z: -0.21830297, w: 0.344502}
+  m_LocalPosition: {x: 0, y: 30, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 27, y: 138.5, z: 0}
 --- !u!1 &2104618310
 GameObject:
   m_ObjectHideFlags: 0
@@ -5064,7 +5064,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0.508366, g: 0.9056604, b: 0.86429995, a: 1}
   cutoff: 0.526
-  metallic: 0
+  metallic: 0.349
   smoothness: 0.5
 --- !u!135 &2104618312
 SphereCollider:
@@ -5178,7 +5178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0.7730679, g: 0.67058825, b: 0.8509804, a: 1}
   cutoff: 0.5
-  metallic: 0
+  metallic: 0.349
   smoothness: 0.5
 --- !u!135 &2140426652
 SphereCollider:

@@ -17,6 +17,8 @@ Shader "Custom RP/Lit" {
             Tags {
                 "LightMode" = "CustomLit"
             }
+            Name "LitPass"
+
             Blend [_SrcBlend][_DstBlend]
             ZWrite [_ZWrite]
             HLSLPROGRAM
@@ -35,6 +37,7 @@ Shader "Custom RP/Lit" {
             Tags {
                 "LightMode" = "ShadowCaster"
             }
+            Name "CasterShadows"
             
             ColorMask 0
             
