@@ -27,7 +27,13 @@ public class Shadows {
     private static int _cascadeCountID = Shader.PropertyToID("_CascadeCount");
     private static int _cascadeCullingSpheresID = Shader.PropertyToID("_CascadeCullingSpheres");
     private static int _cascadeDataID = Shader.PropertyToID("_CascadeData");
+    private static int _shadowAtlasSizeID = Shader.PropertyToID("_ShadowAtlasSize");
     private static int _shadowDistanceFadeID = Shader.PropertyToID("_ShadowDistanceFade");
+    string[] directionalFilterKeywords = {
+        "_DIRECTIONAL_PCF3",
+        "_DIRECTIONAL_PCF5",
+        "_DIRECTIONAL_PCF7"
+    };
     
     private static Vector4[] _cascadeCullingSpheres = new Vector4[MaxCascades];
     private static Vector4[] _cascadeData = new Vector4[MaxCascades];
@@ -102,8 +108,24 @@ public class Shadows {
         _buffer.SetGlobalMatrixArray(_dirShadowMatricesID, _dirShadowMatrices);
         float f = 1f - _settings.directional.cascadeRatio;
         _buffer.SetGlobalVector(_shadowDistanceFadeID, new Vector4(1f / _settings.maxDistance, 1f / _settings.distanceFade, 1f / (1f - f*f)));
+        SetKeywords();
+        _buffer.SetGlobalVector(
+            _shadowAtlasSizeID, new Vector4(atlasSize, 1f / atlasSize)
+        );
         _buffer.EndSample(bufferName);
         ExecuteBuffer();
+    }
+
+    private void SetKeywords() {
+        int enabledIndex = (int)_settings.directional.filter - 1;
+        for (int i = 0; i<directionalFilterKeywords.Length; ++i) {
+            if (i == enabledIndex) {
+                _buffer.EnableShaderKeyword(directionalFilterKeywords[i]);
+            }
+            else {
+                _buffer.DisableShaderKeyword(directionalFilterKeywords[i]);
+            }
+        }
     }
 
     private void RenderDirectionalShadows(int index, int split, int tileSize) {
@@ -142,11 +164,16 @@ public class Shadows {
 
     void SetCascadeData(int index, Vector4 cullingSphere, float tileSize) {
         float texelSize = 2f * cullingSphere.w / tileSize;
-        cullingSphere.w *= cullingSphere.w; // ? 不应该先乘再给上面赋值？
+        float filterSize = texelSize * ((float)_settings.directional.filter + 1f);
+        cullingSphere.w -= filterSize;
+        cullingSphere.w *= cullingSphere.w;
         _cascadeCullingSpheres[index] = cullingSphere;
         //However, this isn't always sufficient because texels are squares.
         //In the worst case we end up having to offset along the square's diagonal, so let's scale it by √2.
-        _cascadeData[index] = new Vector4(1f / cullingSphere.w, texelSize * 1.4142136f);
+        _cascadeData[index] = new Vector4(
+            1f / cullingSphere.w, 
+            filterSize * 1.4142136f
+        );
     }
 
     private Vector2 SetTileViewport(int index, int split, float tileSize) {

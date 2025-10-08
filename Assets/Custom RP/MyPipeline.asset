@@ -18,6 +18,7 @@ MonoBehaviour:
   shadows:
     directional:
       atlasSize: 512
+      filter: 1
       cascadeCount: 4
       cascadeRatio: 0.1
       cascadeRatio1: 0.212
