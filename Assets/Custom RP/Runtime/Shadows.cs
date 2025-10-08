@@ -17,6 +17,7 @@ public class Shadows {
     
     private struct ShadowedDirectionalLight {
         public int visibleLightIndex;
+        public float slopeScaleBias;
     }
 
     private ShadowedDirectionalLight[] _shadowedDirectionalLights = new ShadowedDirectionalLight[MaxShadowedDirectionalLightCount];
@@ -24,9 +25,11 @@ public class Shadows {
     private static int _dirShadowMatricesID = Shader.PropertyToID("_DirectionalShadowMatrices");
     private static int _cascadeCountID = Shader.PropertyToID("_CascadeCount");
     private static int _cascadeCullingSpheresID = Shader.PropertyToID("_CascadeCullingSpheres");
+    private static int _cascadeDataID = Shader.PropertyToID("_CascadeData");
     private static int _shadowDistanceFadeID = Shader.PropertyToID("_ShadowDistanceFade");
     
     private static Vector4[] _cascadeCullingSpheres = new Vector4[MaxCascades];
+    private static Vector4[] _cascadeData = new Vector4[MaxCascades];
     private static Matrix4x4[] _dirShadowMatrices = new Matrix4x4[MaxShadowedDirectionalLightCount * MaxCascades];
     
     
@@ -37,23 +40,25 @@ public class Shadows {
         _shadowedDirectionalLightCount = 0;
     }
 
-    public Vector2 ReserveDirectionalShadows(Light light, int visibleLightIndex) {
+    public Vector3 ReserveDirectionalShadows(Light light, int visibleLightIndex) {
         if (_shadowedDirectionalLightCount < MaxShadowedDirectionalLightCount 
             && light.shadows != LightShadows.None 
             && light.shadowStrength > 0f 
             && _cullingResults.GetShadowCasterBounds(visibleLightIndex, out Bounds b)) {
             _shadowedDirectionalLights[_shadowedDirectionalLightCount] = new ShadowedDirectionalLight {
                 visibleLightIndex = visibleLightIndex,
+                slopeScaleBias    = light.shadowBias
             };
-            Vector2 res = new Vector2(
+            Vector3 res = new Vector3 (
                 light.shadowStrength, 
-                _settings.directional.cascadeCount * _shadowedDirectionalLightCount
+                _settings.directional.cascadeCount * _shadowedDirectionalLightCount,
+                light.shadowNormalBias
             );
             ++_shadowedDirectionalLightCount;
             return res;
         }
 
-        return Vector2.zero;
+        return Vector3.zero;
     }
 
     public void Render() {
@@ -91,6 +96,7 @@ public class Shadows {
         }
         _buffer.SetGlobalInt(_cascadeCountID, _settings.directional.cascadeCount);
         _buffer.SetGlobalVectorArray(_cascadeCullingSpheresID, _cascadeCullingSpheres);
+        _buffer.SetGlobalVectorArray(_cascadeDataID, _cascadeData);
         _buffer.SetGlobalMatrixArray(_dirShadowMatricesID, _dirShadowMatrices);
         float f = 1f - _settings.directional.cascadeRatio;
         _buffer.SetGlobalVector(_shadowDistanceFadeID, new Vector4(1f / _settings.maxDistance, 1f / _settings.distanceFade, 1f / (1f - f*f)));
@@ -115,9 +121,7 @@ public class Shadows {
             shadowSettings.splitData = splitData;
 
             if (index == 0) {
-                Vector4 cullingSphere = splitData.cullingSphere;
-                cullingSphere.w *= cullingSphere.w;
-                _cascadeCullingSpheres[i] = cullingSphere;
+                SetCascadeData(i, splitData.cullingSphere, tileSize);
             }
             
             int tileIndex = tileOffset + i;
@@ -127,9 +131,20 @@ public class Shadows {
                 split
             );
             _buffer.SetViewProjectionMatrices(viewMatrix, projectionMatrix);
+            _buffer.SetGlobalDepthBias(0f, light.slopeScaleBias);
             ExecuteBuffer();
             _context.DrawShadows(ref shadowSettings);
+            _buffer.SetGlobalDepthBias(0f, 0f);
         }
+    }
+
+    void SetCascadeData(int index, Vector4 cullingSphere, float tileSize) {
+        float texelSize = 2f * cullingSphere.w / tileSize;
+        cullingSphere.w *= cullingSphere.w; // ? 不应该先乘再给上面赋值？
+        _cascadeCullingSpheres[index] = cullingSphere;
+        //However, this isn't always sufficient because texels are squares.
+        //In the worst case we end up having to offset along the square's diagonal, so let's scale it by √2.
+        _cascadeData[index] = new Vector4(1f / cullingSphere.w, texelSize * 1.4142136f);
     }
 
     private Vector2 SetTileViewport(int index, int split, float tileSize) {

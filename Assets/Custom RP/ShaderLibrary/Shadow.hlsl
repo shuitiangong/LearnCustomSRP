@@ -12,6 +12,7 @@ SAMPLER_CMP(SHADOW_SAMPLER);
 CBUFFER_START (_CustomShadows)
     int _CascadeCount;
     float4 _CascadeCullingSpheres[MAX_CASCADE_COUNT];
+    float4 _CascadeData[MAX_CASCADE_COUNT];
     float4x4 _DirectionalShadowMatrices[MAX_SHADOWED_DIRECTIONAL_LIGHT_COUNT * MAX_CASCADE_COUNT];
     float4 _ShadowDistanceFade;
 CBUFFER_END
@@ -19,6 +20,7 @@ CBUFFER_END
 struct DirectionalShadowData {
     float strength;
     int tileIndex;
+    float normalBias;
 };
 
 struct ShadowData {
@@ -32,11 +34,12 @@ float SampleDirectionalShadowAtlas(float3 positionSTS) {
     );
 }
 
-float GetDirectionalShadowAttenuation(DirectionalShadowData data, Surface surfaceWS) {
-    if (data.strength <= 0.0) return 1.0;
-    float3 positionSTS = mul(_DirectionalShadowMatrices[data.tileIndex], float4(surfaceWS.position, 1.0)).xyz;
+float GetDirectionalShadowAttenuation(DirectionalShadowData directional, ShadowData global, Surface surfaceWS) {
+    if (directional.strength <= 0.0) return 1.0;
+    float3 normalBias = surfaceWS.normal * (directional.normalBias * _CascadeData[global.cascadeInex].y);
+    float3 positionSTS = mul(_DirectionalShadowMatrices[directional.tileIndex], float4(surfaceWS.position + normalBias, 1.0)).xyz;
     float shadow = SampleDirectionalShadowAtlas(positionSTS);
-    return lerp(1.0, shadow, data.strength);
+    return lerp(1.0, shadow, directional.strength);
 }
 
 float FadeShadowStrength(float distance, float scale, float fade) {
@@ -56,7 +59,8 @@ ShadowData GetShadowData(Surface surfaceWS) {
         if (distanceSqr < sphere.w) {
             if (i == _CascadeCount - 1) {
                 //级联渐变
-                data.strength *= FadeShadowStrength(distanceSqr, 1.0/sphere.w, _ShadowDistanceFade.z);
+                //data.strength *= FadeShadowStrength(distanceSqr, 1.0/sphere.w, _ShadowDistanceFade.z);
+                data.strength *= FadeShadowStrength(distanceSqr, _CascadeData[i], _ShadowDistanceFade.z);
             }
             break;
         }
