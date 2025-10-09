@@ -39,6 +39,7 @@ struct DirectionalShadowData {
 
 struct ShadowData {
     int cascadeInex;
+    float cascadeBlend;
     float strength;
 };
 
@@ -69,6 +70,14 @@ float GetDirectionalShadowAttenuation(DirectionalShadowData directional, ShadowD
     float3 normalBias = surfaceWS.normal * (directional.normalBias * _CascadeData[global.cascadeInex].y);
     float3 positionSTS = mul(_DirectionalShadowMatrices[directional.tileIndex], float4(surfaceWS.position + normalBias, 1.0)).xyz;
     float shadow = FilterDirectionalShadow(positionSTS);
+    if (global.cascadeBlend < 1.0) {
+        normalBias = surfaceWS.normal * (directional.normalBias * _CascadeData[global.cascadeInex + 1].y);
+        positionSTS = mul(
+            _DirectionalShadowMatrices[directional.tileIndex + 1],
+            float4(surfaceWS.position + normalBias, 1.0)
+        ).xyz;
+        shadow = lerp(FilterDirectionalShadow(positionSTS), shadow, global.cascadeBlend);
+    }
     return lerp(1.0, shadow, directional.strength);
 }
 
@@ -78,6 +87,7 @@ float FadeShadowStrength(float distance, float scale, float fade) {
 
 ShadowData GetShadowData(Surface surfaceWS) {
     ShadowData data;
+    data.cascadeBlend = 1.0;
     //由于unity阴影的裁剪球比实际要计算的稍大，所以在相机拉到比较远的地方的时候会突然消失（临界点就是超出最大距离不该投射阴影的时候）
     //这里直接用裁剪球来做距离裁剪
     //data.strength = surfaceWS.depth < _ShadowDistance ? 1.0 : 0.0;
@@ -87,10 +97,14 @@ ShadowData GetShadowData(Surface surfaceWS) {
         float4 sphere = _CascadeCullingSpheres[i];
         float distanceSqr = DistancesSquared(surfaceWS.position, sphere.xyz);
         if (distanceSqr < sphere.w) {
+            float fade = FadeShadowStrength(distanceSqr, _CascadeData[i].x, _ShadowDistanceFade.z);
             if (i == _CascadeCount - 1) {
                 //级联渐变
                 //data.strength *= FadeShadowStrength(distanceSqr, 1.0/sphere.w, _ShadowDistanceFade.z);
-                data.strength *= FadeShadowStrength(distanceSqr, _CascadeData[i], _ShadowDistanceFade.z);
+                data.strength *= fade;
+            }
+            else {
+                data.cascadeBlend = fade;
             }
             break;
         }
@@ -99,7 +113,14 @@ ShadowData GetShadowData(Surface surfaceWS) {
     if (i == _CascadeCount) {
         data.strength = 0.0;
     }
-    
+#if defined(_CASCADE_BLEND_DITHER)
+    else if (data.cascadeBlend < surfaceWS.dither) {
+        i += 1;
+    }
+#endif
+#if !defined(_CASCADE_BLEND_SOFT)
+    data.cascadeBlend = 1.1;
+#endif
     data.cascadeInex = i;
     return data;
 }
