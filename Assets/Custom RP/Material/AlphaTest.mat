@@ -7,22 +7,25 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SampleLit
+  m_Name: AlphaTest
   m_Shader: {fileID: 4800000, guid: 0e4f45cfd495c7c41aa678fc1a620063, type: 3}
   m_ValidKeywords:
+  - _CLIPPING
   - _PREMULTIPLY_ALPHA
+  - _RECEIVE_SHADOWS
+  - _SHADOWS_CLIP
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: 2450
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 07fde6f44d6dafa48979e3159f97a9c6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -64,8 +67,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _BumpScale: 1
-    - _Clipping: 0
-    - _Cutoff: 0.332
+    - _Clipping: 1
+    - _Cutoff: 0.222
     - _DetailNormalMapScale: 1
     - _DstBlend: 10
     - _GlossMapScale: 1
@@ -76,6 +79,8 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _PremulAlpha: 1
+    - _ReceiveShadows: 1
+    - _Shadows: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1

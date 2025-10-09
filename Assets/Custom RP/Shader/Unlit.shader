@@ -6,7 +6,9 @@ Shader "Custom RP/Unlit" {
         [Toggle(_CLIPPING)] _Clipping("Alpha Clipping", Float) = 0
         [Enum(UnityEngine.Rendering.BlendMode)]_SrcBlend("Src Blend", Float) = 1
         [Enum(UnityEngine.Rendering.BlendMode)]_DstBlend("Dst Blend", Float) = 0
-        [Enum(off, 0, On, 1)]_ZWrite("Z_Write", Float) = 1 
+        [Enum(off, 0, On, 1)]_ZWrite("Z_Write", Float) = 1
+        [KeywordEnum(On, Clip, Dither, Off)] _Shadows ("Shadows", Float) = 0
+        [Toggle(_RECEIVE_SHADOWS)] _ReceiveShadows ("Receive Shadows", Float) = 1
     }
     
     SubShader {
@@ -20,6 +22,24 @@ Shader "Custom RP/Unlit" {
             #pragma vertex UnlitPassVertex
             #pragma fragment UnlitPassFragment
             #include "UnlitPass.hlsl"
+            ENDHLSL
+        }
+
+        Pass {
+            Tags {
+                "LightMode" = "ShadowCaster"
+            }
+            Name "CasterShadows"
+            
+            ColorMask 0
+            
+            HLSLPROGRAM
+            #pragma target 3.5
+            #pragma shader_feature _ _SHADOWS_CLIP _SHADOWS_DITHER
+            #pragma multi_compile_instancing
+            #pragma vertex ShadowCasterPassVertex
+            #pragma fragment ShadowCasterPassFragment
+            #include "ShadowCasterPass.hlsl"
             ENDHLSL
         }
     }
