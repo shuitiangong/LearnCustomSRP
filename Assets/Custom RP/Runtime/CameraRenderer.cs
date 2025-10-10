@@ -63,7 +63,8 @@ public partial class CameraRenderer {
         };
         var drawingSettings = new DrawingSettings(_unlitShaderTagID, sortingSettings) {
             enableDynamicBatching = useDynamicBatching,
-            enableInstancing = useGPUInstancing
+            enableInstancing = useGPUInstancing,
+            perObjectData = PerObjectData.Lightmaps
         };
         drawingSettings.SetShaderPassName(1, _litShaderTagID);
         
